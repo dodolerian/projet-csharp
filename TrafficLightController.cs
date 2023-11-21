@@ -1,22 +1,26 @@
-// TrafficLightController.cs
-
-using traffic;
-
-public class TrafficLightController
+using System;
+namespace traffic
 {
-    public TrafficLightColor NextTrafficLightColor(TrafficLightColor currentColor)
+    public class TrafficLightController
     {
-        switch (currentColor)
+        public string? currentColor{get;set;}
+        public TrafficLightColor NextTrafficLightColor(TrafficLightColor currentColor)
         {
-            case TrafficLightColor.Green:
-                return TrafficLightColor.Orange;
-            case TrafficLightColor.Orange:
-                return TrafficLightColor.Red;
-            case TrafficLightColor.Red:
-                return TrafficLightColor.Green;
-            case TrafficLightColor.None:
-            default:
-                return TrafficLightColor.None;
+            switch (currentColor)
+            {
+                case TrafficLightColor.Green:
+                    Thread.Sleep(1000);
+                    return TrafficLightColor.Orange;
+                case TrafficLightColor.Orange:
+                    Thread.Sleep(1000);
+                    return TrafficLightColor.Red;
+                case TrafficLightColor.Red:
+                    Thread.Sleep(1000);
+                    return TrafficLightColor.Green;
+                case TrafficLightColor.None:
+                default:
+                    return TrafficLightColor.None;
+            }
         }
     }
 }
