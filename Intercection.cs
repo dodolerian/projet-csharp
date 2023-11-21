@@ -2,14 +2,27 @@ namespace traffic
 {
     public class Intercection
     {
-        public int carIn {get; private set;} 
-        public int carOut {get; private set;}  // 1 North, 2 Est, 3 South, 4 West
-    
-        public bool isCarIn {get; set;} = false;
-        public Intercection (int carIn, int carOut)
+         public Car[] carInIntercection {get; set;} = {new Car(0,0,""),new Car(0,0,"")};
+        public Intercection ()
         {
-            this.carIn=carIn;
-            this.carOut=carOut;
+        }
+         public void CarLeave(string carName)
+        {
+            for(int i=0;i<carInIntercection.Length;i++)
+            {
+                if(carInIntercection[i].name==carName)
+                {
+                    carInIntercection[i].name="";
+                    carInIntercection[i].exitPos=0;
+                    carInIntercection[i].spawnPos=0;
+                }
+            }
+        }
+        protected void CarEnter(int index, Car car)
+        {
+            carInIntercection[index].name=car.name;
+            carInIntercection[index].exitPos=car.exitPos;
+            carInIntercection[index].spawnPos=car.spawnPos;
         }
     }
 }
