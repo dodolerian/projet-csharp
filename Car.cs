@@ -2,6 +2,7 @@ namespace traffic
 {
   public class Car
   {
+    public string name;
     public int spawnPos;
     public int exitPos;
     public static Car Spawn()
@@ -18,12 +19,14 @@ namespace traffic
       int exitPos = notsame[random.Next(0,notsame.Count)];
       notsame.Remove(exitPos);
 
+
       return new Car(spawnPos, exitPos);
     }
-    public Car(int spawnPos, int exitPos)
+    public Car(int spawnPos, int exitPos, string name)
     {
       this.spawnPos = spawnPos;
       this.exitPos = exitPos;
+      this.name= name;
     }
     public Car(Car myCarCopie){
       this.spawnPos = myCarCopie.spawnPos;
