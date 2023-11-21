@@ -5,7 +5,7 @@ namespace traffic
     public string name;
     public int spawnPos;
     public int exitPos;
-    public static Car Spawn()
+    public static Car Spawn(string name)
     {
       var random=new Random();
      
@@ -20,7 +20,7 @@ namespace traffic
       notsame.Remove(exitPos);
 
 
-      return new Car(spawnPos, exitPos);
+      return new Car(spawnPos, exitPos, name);
     }
     public Car(int spawnPos, int exitPos, string name)
     {
