@@ -2,7 +2,7 @@ namespace traffic
 {
   public class Car
   {
-    public string name;
+    public string name = "";
     public int spawnPos;
     public int exitPos;
     public static Car Spawn(string name)

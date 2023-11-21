@@ -1,11 +1,11 @@
 namespace traffic
 {
-    public class Circle : Intercection
+    public class Circle
     {   
-        public Car[] carInIntercection {get; set;}
+        public Car[] carInIntercection {get; set;} = {new Car(0,0,""),new Car(0,0,"")};
         
         private int entryCounter;
-        public Circle(int carIn, int carOut): base(carIn, carOut)
+        public Circle()
         {
         }
         public void carLeave(string carName)
@@ -20,20 +20,26 @@ namespace traffic
                 }
             }
         }
+        private void carEnter(int index, Car car)
+        {
+            carInIntercection[index].name=car.name;
+            carInIntercection[index].exitPos=car.exitPos;
+            carInIntercection[index].spawnPos=car.spawnPos;
+        }
         public bool canCarGo(Car car)
         {
             if(carInIntercection[0].name =="" && carInIntercection[1].name == "")
             {
-                carInIntercection[0].name=car.name;
+                carEnter(0,car);
                 return true;
             }
             if(carInIntercection[0].name==""||carInIntercection[1].name=="")
             {
                 if(carInIntercection[0].name!="")
                 {
-                    if(carInIntercection[0].exitPos>car.spawnPos||carInIntercection[0].exitPos==4&& car.spawnPos==1)
+                    if(carInIntercection[0].exitPos<car.spawnPos||carInIntercection[0].exitPos==1&& car.spawnPos==4)
                     {
-                        carInIntercection[1]=car;
+                        carEnter(1,car);
                         return true;
                     }
                 }
@@ -41,7 +47,7 @@ namespace traffic
                 {
                     if(carInIntercection[1].exitPos>car.spawnPos||carInIntercection[1].exitPos==4&& car.spawnPos==1)
                     {
-                        carInIntercection[0]=car;
+                        carEnter(0,car);
                         return true;
                     }
                 }
