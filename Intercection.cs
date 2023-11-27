@@ -2,7 +2,7 @@ namespace traffic
 {
     public class Intercection
     {
-         public Car[] carInIntercection {get; set;} = {new Car(0,0,""),new Car(0,0,"")};
+        public Car[] carInIntercection {get; set;} = {new Car(0,0,""),new Car(0,0,"")};
         public Intercection ()
         {
         }
