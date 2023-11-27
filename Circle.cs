@@ -10,7 +10,7 @@ namespace traffic
         {
             if(carInIntercection[0].name =="" && carInIntercection[1].name == "")
             {
-                CarEnter(0,car);
+                CarEnter(car);
                 return true;
             }
             if(carInIntercection[0].name==""||carInIntercection[1].name=="")
@@ -19,7 +19,7 @@ namespace traffic
                 {
                     if(carInIntercection[0].exitPos<car.spawnPos||carInIntercection[0].exitPos==1&& car.spawnPos==4)
                     {
-                        CarEnter(1,car);
+                        CarEnter(car);
                         return true;
                     }
                 }
@@ -27,7 +27,7 @@ namespace traffic
                 {
                     if(carInIntercection[1].exitPos>car.spawnPos||carInIntercection[1].exitPos==4&& car.spawnPos==1)
                     {
-                        CarEnter(0,car);
+                        CarEnter(car);
                         return true;
                     }
                 }

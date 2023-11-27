@@ -11,12 +11,12 @@ namespace traffic
         {
             if(carInIntercection[0].name =="" && carInIntercection[1].name == "")
             {
-                CarEnter(0,car);
+                LaunchTimer(car);
                 return true;
             }
             if(carInIntercection[0].name !="" && carInIntercection[1].name != "")
             {
-                CarEnter(0,car);
+                LaunchTimer(car);
                 return true;
             }
             if(priorityAxe==1){
@@ -24,14 +24,7 @@ namespace traffic
                 {
                     if(car.spawnPos==1&&car.exitPos==3||car.spawnPos==3&&car.exitPos==1)//car don't turne
                     {
-                        if(carInIntercection[0].name=="")
-                        {
-                            CarEnter(0,car);
-                        }
-                        else
-                        {
-                            CarEnter(1,car);
-                        }
+                        LaunchTimer(car);
                         return true;
                     }
                     if(car.spawnPos==1&&car.exitPos==4||car.spawnPos==3&&car.exitPos==2)//car do rigth turn 
@@ -82,14 +75,7 @@ namespace traffic
                 {
                     if(car.spawnPos==2&&car.exitPos==4||car.spawnPos==4&&car.exitPos==2)//don't turn 
                     {
-                        if(carInIntercection[0].name=="")
-                        {
-                            CarEnter(0,car);
-                        }
-                        else
-                        {
-                            CarEnter(1,car);
-                        }
+                        LaunchTimer(car);
                         return true;
                     }
                     if(car.spawnPos==2&&car.exitPos==1||car.spawnPos==4&&car.exitPos==3)//car turn rigth
