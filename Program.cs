@@ -1,21 +1,22 @@
-﻿using traffic;
-namespace program
+﻿using System;
+using traffic;
+
+namespace TestCsharp
 {
-  class Program
-  {
-    static void Main(string[] str){
-      Yield Yeild1 = new Yield(0);
-      Car myCar1 = Car.Spawn("car1");
-      Car myCar2 = Car.Spawn("car2");
-      Console.WriteLine(myCar1.spawnPos);
-      Console.WriteLine(myCar1.exitPos);
-      Console.WriteLine(myCar2.spawnPos);
-      Console.WriteLine(myCar2.exitPos);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Car myCar1 = Car.Spawn();
+            TrafficLightController controler = new TrafficLightController();
+            lightIntersection myCar1A = new lightIntersection(myCar1.spawnPos);
+            
 
-
-      Console.WriteLine(Yeild1.CanCarGo(myCar1));
-      Console.WriteLine(Yeild1.CanCarGo(myCar2));
-
+            Console.WriteLine($"My car spawnPos : {myCar1.spawnPos} and exitPos : {myCar1.exitPos}");  
+            Console.WriteLine(controler.NextTrafficLightColor(TrafficLightColor.Orange));
+ 
+            int result = myCar1A.carIntersection(myCar1.exitPos, TrafficLightColor.Orange);
+            Console.WriteLine($"CarIntersection result: {result}");
+        }
     }
-  }
 }
