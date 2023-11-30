@@ -6,6 +6,7 @@ namespace traffic
     public int spawnPos;
     public int exitPos;
     public bool ispassed =false;
+    public bool isInIntercection = false;
     public static Car Spawn(string name)
     {
       var random=new Random();

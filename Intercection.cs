@@ -15,6 +15,7 @@ namespace traffic
                     carInIntercection[i].name="";
                     carInIntercection[i].exitPos=0;
                     carInIntercection[i].spawnPos=0;
+                    carInIntercection[i].ispassed=true;
                     Console.WriteLine($"{carName} has exit the intercection");
                     break;
                 }
@@ -30,7 +31,7 @@ namespace traffic
                     carInIntercection[i].name=car.name;
                     carInIntercection[i].exitPos=car.exitPos;
                     carInIntercection[i].spawnPos=car.spawnPos;
-                    carInIntercection[i].ispassed=true;
+                    carInIntercection[i].isInIntercection=true;
                     Console.WriteLine($"{car.name} has enter the intercection");
                     break;
                 }

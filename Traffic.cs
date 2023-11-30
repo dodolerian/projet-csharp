@@ -17,7 +17,7 @@ namespace traffic
             {
                 Console.WriteLine("car is waiting to enter");
             }
-            if(car1.ispassed){
+            if(car1.isInIntercection){
                  if(!circle1.CanCarGo(car1))
                 {
                     Console.WriteLine($"{car1.name} is waiting to enter");
@@ -27,14 +27,14 @@ namespace traffic
             {
                 Console.WriteLine($"{car2.name} is waiting to enter");
             }
-            if(car1.ispassed){
+            if(car1.isInIntercection){
                 if(!circle1.CanCarGo(car1))
                 {
                     Console.WriteLine($"{car1.name}is waiting to enter");
                 }
 
             }
-            if(car2.ispassed){
+            if(car2.isInIntercection){
                 if(!circle1.CanCarGo(car2))
                 {
                     Console.WriteLine($"{car2.name}is waiting to enter");
@@ -45,8 +45,8 @@ namespace traffic
             {
                 Console.WriteLine($"{car3.name} waiting to enter");
             }
-            while(car1.ispassed && car2.ispassed && !car3.ispassed){
-                if(car1.ispassed){
+            while(car1.ispassed && car2.ispassed && car3.ispassed){
+                if(car1.isInIntercection){
                     if(!circle1.CanCarGo(car1))
                     {
                         Console.WriteLine($"{car1.name}is waiting to enter");
@@ -54,7 +54,7 @@ namespace traffic
                 }else{
                     circle1.CarLeave(car1.name);
                 }
-                if(car2.ispassed){
+                if(car2.isInIntercection){
                     if(!circle1.CanCarGo(car2))
                     {
                         Console.WriteLine($"{car2.name}is waiting to enter");
@@ -62,7 +62,7 @@ namespace traffic
                 }else{
                     circle1.CarLeave(car2.name);
                 }
-                if(car3.ispassed){
+                if(car3.isInIntercection){
                     if(!circle1.CanCarGo(car3))
                     {
                         Console.WriteLine($"{car3.name}is waiting to enter");
